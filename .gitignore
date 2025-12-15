@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment (Very Important)
+venv/
+env/
+
+# Environment Variables (Security)
+.env
+.env.local
+
+# IDE settings (Optional but recommended)
+.vscode/
+.idea/
