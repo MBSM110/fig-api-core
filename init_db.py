@@ -1,7 +1,8 @@
 import asyncio
 from app.core.database import engine, Base
 # We MUST import the models here so SQLAlchemy knows they exist
-from app.models.coin import Coin 
+from app.models.coin import Coin
+from app.models.coin_price import CoinPrice
 
 async def create_tables():
     print("Connecting to Neon to create tables...")
