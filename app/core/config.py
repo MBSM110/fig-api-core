@@ -8,6 +8,8 @@ class Settings(BaseSettings):
     # Define the core database URL using a Pydantic type for validation
     # This expects the format: postgresql+asyncpg://user:password@host/dbname
     DATABASE_URL: PostgresDsn
+    # Define an environment variable for deployment (we'll use 'prod' for Render)
+    ENVIRONMENT: str = "dev"
 
     # Model configuration tells Pydantic how to load the settings
     model_config = SettingsConfigDict(
