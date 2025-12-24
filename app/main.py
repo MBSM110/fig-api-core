@@ -22,6 +22,16 @@ def health_check():
 
 # --- COIN MANAGEMENT ---
 
+@app.get("/coins/", response_model=List[CoinResponse])
+async def list_coins(db: AsyncSession = Depends(get_db)):
+    """
+    Returns a list of all coins registered in the database.
+    The worker uses this to find the correct internal ID for a coin (like XRP).
+    """
+    result = await db.execute(select(Coin))
+    coins = result.scalars().all()
+    return coins
+
 @app.post("/coins/", response_model=CoinResponse)
 async def create_coin(coin_in: CoinCreate, db: AsyncSession = Depends(get_db)):
     """
