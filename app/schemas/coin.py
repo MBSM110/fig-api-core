@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from typing import Optional
 from datetime import datetime
 
@@ -19,4 +19,4 @@ class CoinResponse(CoinBase):
 
     # This tells Pydantic to look at SQLAlchemy objects and 
     # extract data based on the attribute names.
-    model_config = {"from_attributes": True}
+    model_config = ConfigDict(from_attributes=True)
